@@ -186,6 +186,9 @@ body {
     -ms-grid-column-align: start;
         justify-self: start;
   }
+  .container .section-top .header--centered {
+    max-width: 340px;
+  }
   .container .section-top .header__title {
     font-size: 55px;
     line-height: 60px;

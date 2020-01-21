@@ -1,0 +1,8 @@
+@mixin grid-template-columns($columns...) {
+  -ms-grid-columns: $columns;
+  grid-template-columns: $columns;
+}
+
+@mixin grid-gap($gap) {
+  grid-gap: $gap;
+}

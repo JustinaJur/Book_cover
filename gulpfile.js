@@ -6,12 +6,12 @@ const sourcemaps = require("gulp-sourcemaps");
 
 gulp.task("styles", () =>
   gulp
-    .src("./scss/index.scss")
+    .src("./styles/scss/index.scss")
     .pipe(sourcemaps.init())
     .pipe(sass({ errorLogToConsole: true, outputStyle: "compressed" }))
     .on("error", console.error.bind(console))
     .pipe(autoprefixer())
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./css"))
+    .pipe(gulp.dest("./styles/css"))
 );

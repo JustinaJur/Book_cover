@@ -1,22 +1,17 @@
 const gulp = require("gulp");
 const rename = require("gulp-rename");
-const scss = require("gulp-scss");
+const sass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
 const sourcemaps = require("gulp-sourcemaps");
 
 gulp.task("styles", () =>
   gulp
-    .src("./index.css")
+    .src("./scss/index.scss")
     .pipe(sourcemaps.init())
-    .pipe(
-      scss({
-        errorLogToConsole: true,
-        outputStyle: "compressed"
-      })
-        .on("error", console.error.bind(console))
-        .pipe(autoprefixer())
-    )
+    .pipe(sass({ errorLogToConsole: true, outputStyle: "compressed" }))
+    .on("error", console.error.bind(console))
+    .pipe(autoprefixer())
     .pipe(rename({ suffix: ".min" }))
     .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("./"))
+    .pipe(gulp.dest("./css"))
 );
